@@ -19,8 +19,8 @@ public class LoadingScreen extends AppCompatActivity {
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
-                Intent mainIntent = new Intent(LoadingScreen.this,MainActivity.class);
-                LoadingScreen.this.startActivity(mainIntent);
+                Intent i = new Intent(LoadingScreen.this, CreateOrSignUp.class);
+                LoadingScreen.this.startActivity(i);
                 LoadingScreen.this.finish();
             }
         }, SPLASH_DISPLAY_LENGHT);
