@@ -2,7 +2,7 @@
     <string name="app_name">AgConnect</string>
     <string name="app_subtitle">Kelowna\'s Friend-Finding App for Older Adults</string>
 
-     <!-- Button Text -->
+    <!-- Button Text -->
     <string name="btn_settings">Settings</string>
     <string name="btn_connect">Connect</string>
     <string name="btn_myConnections">My Connections</string>
@@ -26,7 +26,7 @@
     <string name="btn_chat">Chat</string>
     <string name="btn_sendMsg">Send Message</string>
     <string name="btn_viewEdit">View/Edit</string>
-    <string name="btn_tellMe">Tell me about AgConnect</string>
+    <string name="btn_tellMe">About AgConnect</string> <!-- TODO: updated -->
     <string name="btn_delAcc">Delete Account</string>
     <string name="btn_tellMe1">Our Purpose</string>
     <string name="btn_tellMe2">Our Goals</string>
@@ -47,7 +47,12 @@
     <string name="label_new">New!</string>
     <string name="prefs_preferences">Preferences</string>
     <string name="prefs_notifications">Notifications</string>
-    <string name="prefs_ageRange">Age Range:</string>
+    <string name="prefs_ageRange">Age Range</string>
+    <string name="prefs_ageRangeTo">to</string>
+    <string name="prefs_theme">Theme</string>
+    <string name="prefs_theme1">Simple</string>
+    <string name="prefs_theme2">Color</string>
+    <string name="prefs_activeStatus">Active Status</string>
     <string name="prof_profile">Profile</string>
     <string name="title_connect">Connect with Potential Friends</string>
     <string name="title_profilePotential">Potential Friend\'s Profile</string>
@@ -57,6 +62,7 @@
     <string name="title_chat">Chat with %1$s</string>
     <string name="title_events">Kelowna\'s Local Public Events</string>
     <string name="title_event">Viewing local Event</string>
+    <string name="title_error">Error</string>
     <string name="eventsFilter1">date</string>
     <string name="eventsFilter2">location</string>
     <string name="eventsFilter3">price</string>
@@ -88,13 +94,17 @@
     <string name="ins_selectAllApply">Please select all that apply.</string>
     <string name="ins_selectOne">Please select one.</string>
     <string name="ins_pic">When you tap the upload button it will bring you to the photos on your phone. Select one you want to show to potential friends.</string>
-    <string name="ins_bio">Type more about yourself here...</string>
+    <string name="ins_bio">Type more about yourself here…</string>
     <string name="ins_profile_editDelete">Tap the item to edit\nTap the X to delete</string>
     <string name="ins_profile_request">To chat send a friend request, and then wait for them to accept</string>
     <string name="ins_chat">Tap on a prompt or type your own message.\nYou are both interested in:</string>
     <string name="ins_enterMsg">Enter your message here</string>
     <string name="ins_eventsFilter">Filter by</string>
     <string name="ins_events">Tap on an event for more details</string>
+    <string name="ins_delAccount">Are you sure you want to permanently delete your account?</string>
+    <string name="ins_delAccountFINAL">This cannot be reversed. Are you sure you want to permanently delete your account?</string>
+    <string name="ins_prefs_notifications">Turn notifications on or off</string>
+    <string name="ins_error">Sorry! It looks like we missed something!</string>
 
     <!-- Privacy Notes -->
     <string name="privacy_notRequired">This is NOT required, so only share if you are comfortable doing so.</string>
@@ -102,5 +112,12 @@
     <string name="privacy_dob">Privacy Note: Only your age will be displayed to other users.</string>
     <string name="privacy_pic">Privacy Note: Your picture will be displayed to other users and can help with finding new friends</string>
     <string name="privacy_bio">Privacy Note: Please be mindful of the information you are sharing with other users.</string>
+
+    <!-- Content Descriptions and Hints -->
+    <string name="desc_settingsUserImg">Settings menu button that has the user\'s profile image as the icon</string>
+    <string name="desc_logo">Logo</string>
+    <string name="hint_ageRangeMin">Min</string>
+    <string name="hint_ageRangeMax">Max</string>
+
 
 </resources>
