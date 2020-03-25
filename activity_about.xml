@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    tools:context=".About">
+
+    <ImageView
+        android:id="@+id/about_image_logo"
+        android:layout_width="261dp"
+        android:layout_height="120dp"
+        android:contentDescription="@string/desc_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_simple" />
+
+    <ImageView
+        android:id="@+id/about_image_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/desc_settingsUserImg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icons8_person_96"
+        android:onClick="toSettings"/>
+
+    <TextView
+        android:id="@+id/about_text_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/btn_settings"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/about_image_user"
+        app:layout_constraintStart_toStartOf="@+id/about_image_user"
+        app:layout_constraintTop_toTopOf="@+id/about_image_user"
+        android:onClick="toSettings"/>
+
+    <TextView
+        android:id="@+id/about_text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/btn_tellMe"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_text_settings" />
+
+    <Button
+        android:id="@+id/about_button_purpose"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="64dp"
+        android:onClick="readPurpose"
+        android:text="@string/btn_tellMe1"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_text_title" />
+
+    <Button
+        android:id="@+id/about_button_goals"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:onClick="readGoals"
+        android:text="@string/btn_tellMe2"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_button_purpose" />
+
+    <Button
+        android:id="@+id/about_button_research"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:onClick="readResearch"
+        android:text="@string/btn_tellMe3"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_button_goals" />
+
+    <TextView
+        android:id="@+id/about_text_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_text_title" />
+
+    <Button
+        android:id="@+id/about_button_back"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/colorAccentPink"
+        android:text="@string/btn_back"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="back"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
