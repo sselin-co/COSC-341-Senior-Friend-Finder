@@ -1,20 +1,18 @@
 package ca.ubco.cosc341.agconnect;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class About extends AppCompatActivity {
 
@@ -56,29 +54,20 @@ public class About extends AppCompatActivity {
     }
 
     private String readFile(String filename){
-        File file = new File(this.getFilesDir(), filename);
-        String contents = "Sorry! It looks like we missed something!";
+        StringBuilder contents = new StringBuilder();
 
-        if(!file.exists()){
-            return contents;
-
-        }else {
-            StringBuilder stringBuilder = new StringBuilder();
-            try (FileInputStream fileInputStream = this.openFileInput(filename);
-                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
-                 BufferedReader reader = new BufferedReader(inputStreamReader)) {
-                String line = reader.readLine();
-                while (line != null) {
-                    stringBuilder.append(line).append('\n');
-                    line = reader.readLine();
-                }
-            } catch (IOException e) {
-                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
-            } finally {
-                contents = stringBuilder.toString();
+        try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.getAssets().open(filename)))){
+            String line = bufferedReader.readLine();
+            while(line != null){
+                contents.append(line).append('\n').append('\n');
+                line = bufferedReader.readLine();
             }
-            return contents;
+        }catch(Exception e){
+            contents.replace(0,contents.length(),"Sorry! It looks like we missed something!");
         }
+
+        return contents.toString();
+
     }
 
     public void back(View view){
