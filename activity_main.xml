@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    tools:context=".Main">
+
+    <TextView
+        android:id="@+id/main_text_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_user"
+        android:focusable="true"
+        android:onClick="toSettings"
+        android:text="@string/btn_settings"
+        android:textAlignment="center"
+        android:textColor="@color/silver"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/main_image_logo"
+        android:layout_width="261dp"
+        android:layout_height="120dp"
+        android:clickable="true"
+        android:contentDescription="@string/desc_logo"
+        android:focusable="true"
+        android:onClick="toConnect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_simple" />
+
+    <TextView
+        android:id="@+id/main_text_connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_connect_100"
+        android:focusable="true"
+        android:onClick="toConnect"
+        android:text="@string/btn_connect"
+        android:textAlignment="center"
+        android:textColor="@color/silver"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/main_text_myConnections"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/main_text_myConnections"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_my_connections_100"
+        android:focusable="true"
+        android:onClick="toMyConnections"
+        android:text="@string/btn_myConnections"
+        android:textAlignment="center"
+        android:textColor="@color/silver"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/main_text_events"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/main_text_connect" />
+
+    <TextView
+        android:id="@+id/main_text_events"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_events_100"
+        android:focusable="true"
+        android:onClick="toEvents"
+        android:text="@string/btn_events"
+        android:textAlignment="center"
+        android:textColor="@color/silver"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/main_text_myConnections" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
