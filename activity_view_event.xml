@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    tools:context=".ViewEvent">
+
+    <Button
+        android:id="@+id/viewEvent_button_back"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/colorAccentPink"
+        android:onClick="toPrevious"
+        android:text="@string/btn_back"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/viewEvent_text_myConnections"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/viewEvent_text_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_user"
+        android:focusable="true"
+        android:onClick="toSettings"
+        android:text="@string/btn_settings"
+        android:textAlignment="center"
+        android:textColor="@color/silver"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/viewEvent_image_logo"
+        android:layout_width="261dp"
+        android:layout_height="120dp"
+        android:contentDescription="@string/desc_logo"
+        android:onClick="toConnect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_simple" />
+
+    <TextView
+        android:id="@+id/viewEvent_text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/title_event"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewEvent_text_settings" />
+
+
+    <ImageView
+        android:id="@+id/viewEvent_image_Picture"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/desc_eventPic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewEvent_text_Name" />
+
+    <TextView
+        android:id="@+id/viewEvent_text_Name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/viewEvent_text_DateTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/viewEvent_image_Picture"
+        app:layout_constraintTop_toBottomOf="@+id/viewEvent_text_title" />
+
+    <TextView
+        android:id="@+id/viewEvent_text_DateTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/viewEvent_text_Location"
+        app:layout_constraintEnd_toEndOf="@+id/viewEvent_text_Name"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/viewEvent_text_Name"
+        app:layout_constraintTop_toBottomOf="@+id/viewEvent_text_Name" />
+
+    <TextView
+        android:id="@+id/viewEvent_text_Location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/viewEvent_text_Price"
+        app:layout_constraintEnd_toEndOf="@+id/viewEvent_text_Name"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/viewEvent_text_Name"
+        app:layout_constraintTop_toBottomOf="@+id/viewEvent_text_DateTime" />
+
+    <TextView
+        android:id="@+id/viewEvent_text_Price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="@+id/viewEvent_text_Name"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/viewEvent_text_Name"
+        app:layout_constraintTop_toBottomOf="@+id/viewEvent_text_Location" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fadeScrollbars="false"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/viewEvent_button_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewEvent_image_Picture">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/viewEvent_text_Details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:linksClickable="true"
+                android:onClick="toPrevious"
+                android:textColorLink="@color/colorPrimary"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/viewEvent_text_connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_connect_100"
+        android:focusable="true"
+        android:onClick="toConnect"
+        android:text="@string/btn_connect"
+        android:textAlignment="center"
+        android:textColor="@color/silver"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/viewEvent_text_myConnections"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/viewEvent_text_myConnections"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_my_connections_100"
+        android:focusable="true"
+        android:onClick="toMyConnections"
+        android:text="@string/btn_myConnections"
+        android:textAlignment="center"
+        android:textColor="@color/silver"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/viewEvent_text_events"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/viewEvent_text_connect" />
+
+    <TextView
+        android:id="@+id/viewEvent_text_events"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_events_100"
+        android:focusable="true"
+        android:onClick="toEvents"
+        android:text="@string/btn_events"
+        android:textAlignment="center"
+        android:textColor="@color/silver"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/viewEvent_text_myConnections" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

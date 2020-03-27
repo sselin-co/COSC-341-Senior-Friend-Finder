@@ -1,0 +1,5 @@
+eventName1,20 April 2020 at 6:00pm,Location1,$10.00,Here are more details,event1
+eventName2,23 April 2020 at 10:00am,Location2,$0.00,Here are more details,event2
+eventName3,2 May 2020 at 12:00pm,Location3,$50.00,Here are more details,event3
+eventName4,15 May 2020 at 7:30pm,Location4,$15.00,Here are more details,event4
+eventName5,19 May 2020 at 2:00pm,Location5,$5.00,Here are more details,event5
