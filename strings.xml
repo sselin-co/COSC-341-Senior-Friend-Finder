@@ -60,8 +60,8 @@
     <string name="request_received">Friend request received on %1$s</string>
     <string name="request_accepted">You became friends on %1$s</string>
     <string name="title_chat">Chat with %1$s</string>
-    <string name="title_events">Kelowna\'s Local Public Events</string>
-    <string name="title_event">Viewing local Event</string>
+    <string name="title_events">Kelowna\'s Public Events</string>
+    <string name="title_event">Viewing Local Event</string>
     <string name="title_error">Error</string>
     <string name="eventsFilter1">date</string>
     <string name="eventsFilter2">location</string>
@@ -116,6 +116,10 @@
     <!-- Content Descriptions and Hints -->
     <string name="desc_settingsUserImg">Settings menu button that has the user\'s profile image as the icon</string>
     <string name="desc_logo">Logo</string>
+    <string name="desc_connect">Button that navigates the user to the Connect page</string>
+    <string name="desc_myConnections">Button that navigates the user to their My Connections page</string>
+    <string name="desc_events">Button that navigates the user to the Events page</string>
+    <string name="desc_eventPic">Picture of local event</string>
     <string name="hint_ageRangeMin">Min</string>
     <string name="hint_ageRangeMax">Max</string>
 
