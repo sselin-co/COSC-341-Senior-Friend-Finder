@@ -61,12 +61,12 @@
     <string name="request_accepted">You became friends on %1$s</string>
     <string name="title_chat">Chat with %1$s</string>
     <string name="title_events">Kelowna\'s Public Events</string>
-    <string name="title_event">Viewing Local Event</string>
+    <string name="title_event">Viewing Local Event:</string>
     <string name="title_error">Error</string>
-    <string name="eventsFilter1">date</string>
-    <string name="eventsFilter2">location</string>
-    <string name="eventsFilter3">price</string>
-    <string name="event_price">Price: $</string>
+    <string name="eventSortDate">date</string>
+    <string name="eventSortLocation">location</string>
+    <string name="eventSortPrice">price</string>
+    <string name="event_price">$%1$s</string>
 
     <!-- Profile Questions -->
     <string name="q_name">What is your name?</string>
@@ -99,7 +99,7 @@
     <string name="ins_profile_request">To chat send a friend request, and then wait for them to accept</string>
     <string name="ins_chat">Tap on a prompt or type your own message.\nYou are both interested in:</string>
     <string name="ins_enterMsg">Enter your message here</string>
-    <string name="ins_eventsFilter">Filter by</string>
+    <string name="ins_eventsSort">Sort by:</string>
     <string name="ins_events">Tap on an event for more details</string>
     <string name="ins_delAccount">Are you sure you want to permanently delete your account?</string>
     <string name="ins_delAccountFINAL">This cannot be reversed. Are you sure you want to permanently delete your account?</string>
