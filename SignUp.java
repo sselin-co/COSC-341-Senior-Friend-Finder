@@ -37,29 +37,29 @@ public class SignUp extends AppCompatActivity {
         // Currently only checks if the fields have anything in them
         // Needs strings to be taken from strings.xml
         if (emailString.equals("") && passwordString.equals("")){
-            Toast toast = Toast.makeText(this, "Enter an email and password", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, this.getString(R.string.ins_signUp), Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 800);
             toast.show();
         }
         else if (emailString.equals("")){
-            Toast toast = Toast.makeText(this, "Enter an email", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, this.getString(R.string.ins_email_error), Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 800);
             toast.show();
         }
         else if (passwordString.equals("")){
-            Toast toast = Toast.makeText(this, "Enter a password", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, this.getString(R.string.ins_password_error), Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 800);
             toast.show();
         }
         else{
-            Toast toast = Toast.makeText(this, "Thanks for signing up!", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, this.getString(R.string.ins_success), Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 800);
             toast.show();
             new Handler().postDelayed(new Runnable(){
                 @Override
                 public void run() {
                     CreateOrSignUp.setAndGetSignedUp(true);
-                    Toast toast = Toast.makeText(SignUp.this, "You can make a profile now!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(SignUp.this, SignUp.this.getString(R.string.ins_success2), Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 800);
                     toast.show();
                     finish();
