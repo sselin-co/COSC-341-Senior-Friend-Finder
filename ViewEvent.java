@@ -30,7 +30,7 @@ public class ViewEvent extends AppCompatActivity {
             text_Name.setText(extra.getString("eventName"));
             text_DateTime.setText(extra.getString("eventDate"));
             text_Location.setText(extra.getString("eventLocation"));
-            text_Price.setText(extra.getString("eventPrice"));
+            text_Price.setText(getString(R.string.event_price, extra.getString("eventPrice")));
             text_Details.setText(extra.getString("eventDetails"));
             int resID = getResources().getIdentifier(extra.getString("eventImg"),"drawable", getPackageName());
             image_Picture.setImageResource(resID);

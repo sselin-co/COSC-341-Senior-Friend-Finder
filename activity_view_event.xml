@@ -52,7 +52,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/title_event"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/silver"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,56 +64,60 @@
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/desc_eventPic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/viewEvent_text_Name" />
+        app:layout_constraintTop_toBottomOf="@+id/viewEvent_text_Name" />
 
     <TextView
         android:id="@+id/viewEvent_text_Name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/viewEvent_text_DateTime"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/viewEvent_image_Picture"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewEvent_text_title" />
 
     <TextView
         android:id="@+id/viewEvent_text_DateTime"
-        android:layout_width="0dp"
+        android:layout_width="231dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/viewEvent_text_Location"
-        app:layout_constraintEnd_toEndOf="@+id/viewEvent_text_Name"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/viewEvent_text_Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewEvent_image_Picture"
         app:layout_constraintTop_toBottomOf="@+id/viewEvent_text_Name" />
 
     <TextView
         android:id="@+id/viewEvent_text_Location"
-        android:layout_width="0dp"
+        android:layout_width="231dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/viewEvent_text_Price"
-        app:layout_constraintEnd_toEndOf="@+id/viewEvent_text_Name"
+        app:layout_constraintEnd_toEndOf="@+id/viewEvent_text_DateTime"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/viewEvent_text_Name"
+        app:layout_constraintStart_toStartOf="@+id/viewEvent_text_DateTime"
         app:layout_constraintTop_toBottomOf="@+id/viewEvent_text_DateTime" />
 
     <TextView
         android:id="@+id/viewEvent_text_Price"
-        android:layout_width="0dp"
+        android:layout_width="231dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/colorAccentTeal"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="@+id/viewEvent_text_Name"
+        app:layout_constraintEnd_toEndOf="@+id/viewEvent_text_DateTime"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/viewEvent_text_Name"
+        app:layout_constraintStart_toStartOf="@+id/viewEvent_text_DateTime"
         app:layout_constraintTop_toBottomOf="@+id/viewEvent_text_Location" />
 
     <ScrollView
@@ -130,7 +134,7 @@
         app:layout_constraintBottom_toTopOf="@+id/viewEvent_button_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewEvent_image_Picture">
+        app:layout_constraintTop_toBottomOf="@+id/viewEvent_image_Picture">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -143,6 +147,7 @@
                 android:layout_height="wrap_content"
                 android:linksClickable="true"
                 android:onClick="toPrevious"
+                android:textColor="@color/black"
                 android:textColorLink="@color/colorPrimary"
                 android:textSize="20sp" />
         </LinearLayout>
