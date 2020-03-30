@@ -1,0 +1,28 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AgConnectTheme.Simple" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#1F7A8C</item>
+        <item name="colorPrimaryDark">#022B3A</item>
+        <item name="colorAccent">#5EB1BF</item>
+    </style>
+
+    <style name="AgConnectTheme.Color" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">#F44336</item>
+        <item name="colorPrimaryDark">#970A00</item>
+        <item name="colorAccent">#FFC107</item>
+        <item name="android:background">#FF9B94</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="AgConnectFloatingDialog" parent="AgConnectTheme.Simple">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowActionModeOverlay">false</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimAmount">.70</item>
+    </style>
+
+</resources>
