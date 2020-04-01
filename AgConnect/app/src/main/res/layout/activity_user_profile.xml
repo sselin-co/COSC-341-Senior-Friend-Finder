@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    tools:context=".ViewEditProfile">
+
+    <TextView
+        android:id="@+id/profile_text_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_user"
+        android:focusable="true"
+        android:onClick="toSettings"
+        android:text="@string/btn_settings"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/profile_image_logo"
+        android:layout_width="261dp"
+        android:layout_height="120dp"
+        android:clickable="true"
+        android:contentDescription="@string/desc_logo"
+        android:focusable="true"
+        android:onClick="toConnect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_simple" />
+
+    <TextView
+        android:id="@+id/profile_text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/title_profileUser"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image_logo" />
+
+    <TextView
+        android:id="@+id/profile_text_instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ins_profile_editDelete"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_text_title" />
+
+    <ImageView
+        android:id="@+id/profile_del_X"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/ins_profile_editDelete"
+        app:layout_constraintEnd_toEndOf="@+id/profile_text_instructions"
+        app:layout_constraintStart_toStartOf="@+id/profile_text_instructions"
+        app:layout_constraintTop_toTopOf="@+id/profile_text_instructions"
+        app:srcCompat="@android:drawable/ic_delete" />
+
+    <ImageView
+        android:id="@+id/profile_del_Picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/ins_profile_editDelete"
+        android:foregroundGravity="top"
+        android:hapticFeedbackEnabled="true"
+        android:onClick="deleteItem"
+        android:translationZ="4dp"
+        app:layout_constraintStart_toStartOf="@+id/profile_image_Picture"
+        app:layout_constraintTop_toTopOf="@+id/profile_image_Picture"
+        app:srcCompat="@android:drawable/ic_delete" />
+
+    <ImageView
+        android:id="@+id/profile_image_Picture"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rectangle_border"
+        android:contentDescription="@string/desc_eventPic"
+        android:translationZ="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_text_instructions"
+        app:srcCompat="@drawable/ic_user" />
+
+    <TextView
+        android:id="@+id/profile_text_Name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:translationZ="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profile_image_Picture"
+        app:layout_constraintTop_toTopOf="@+id/profile_image_Picture" />
+
+    <ImageView
+        android:id="@+id/profile_del_Goals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/ins_profile_editDelete"
+        android:foregroundGravity="top"
+        android:onClick="deleteItem"
+        android:translationZ="4dp"
+        app:layout_constraintStart_toStartOf="@+id/profile_text_Name"
+        app:layout_constraintTop_toTopOf="@+id/profile_text_Goals"
+        app:srcCompat="@android:drawable/ic_delete" />
+
+    <TextView
+        android:id="@+id/profile_text_Goals"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:translationZ="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/profile_text_Name"
+        app:layout_constraintStart_toEndOf="@+id/profile_del_Goals"
+        app:layout_constraintTop_toBottomOf="@+id/profile_text_Name" />
+
+    <ImageView
+        android:id="@+id/profile_del_Birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/ins_profile_editDelete"
+        android:onClick="deleteItem"
+        android:translationZ="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/profile_text_Birthday"
+        app:srcCompat="@android:drawable/ic_delete" />
+
+    <TextView
+        android:id="@+id/profile_text_Birthday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:translationZ="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/profile_image_Picture"
+        app:layout_constraintStart_toEndOf="@+id/profile_del_Birthday"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image_Picture" />
+
+    <ImageView
+        android:id="@+id/profile_del_Pronoun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/ins_profile_editDelete"
+        android:onClick="deleteItem"
+        android:translationZ="4dp"
+        app:layout_constraintStart_toEndOf="@+id/profile_text_Birthday"
+        app:layout_constraintTop_toTopOf="@+id/profile_text_Pronoun"
+        app:srcCompat="@android:drawable/ic_delete" />
+
+    <TextView
+        android:id="@+id/profile_text_Pronoun"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:translationZ="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/profile_text_Name"
+        app:layout_constraintStart_toEndOf="@+id/profile_del_Pronoun"
+        app:layout_constraintTop_toBottomOf="@+id/profile_text_Goals" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/rectangle_border"
+        android:fadeScrollbars="false"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarSize="16dp"
+        android:translationZ="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/profile_text_myConnections"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_text_Birthday">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/profile_del_Interests"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/ins_profile_editDelete"
+                    android:onClick="deleteItem"
+                    android:translationZ="4dp"
+                    app:srcCompat="@android:drawable/ic_delete" />
+
+                <TextView
+                    android:id="@+id/profile_text_Interests"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:translationZ="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/profile_del_Bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/ins_profile_editDelete"
+                    android:onClick="deleteItem"
+                    android:translationZ="4dp"
+                    app:srcCompat="@android:drawable/ic_delete" />
+
+                <TextView
+                    android:id="@+id/profile_text_Bio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:translationZ="2dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/profile_text_connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_connect_100"
+        android:focusable="true"
+        android:onClick="toConnect"
+        android:text="@string/btn_connect"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/profile_text_myConnections"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/profile_text_myConnections"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_my_connections_100"
+        android:focusable="true"
+        android:onClick="toMyConnections"
+        android:text="@string/btn_myConnections"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/profile_text_events"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/profile_text_connect" />
+
+    <TextView
+        android:id="@+id/profile_text_events"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_events_100"
+        android:focusable="true"
+        android:onClick="toEvents"
+        android:text="@string/btn_events"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/profile_text_myConnections" />
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rectangle_border"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="@+id/profile_text_Name"
+        app:layout_constraintStart_toStartOf="@+id/profile_image_Picture"
+        app:layout_constraintTop_toTopOf="@+id/profile_image_Picture">
+
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

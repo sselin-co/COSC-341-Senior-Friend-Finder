@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:layout_margin="16dp"
+    android:background="@color/white"
+    style="@style/AgConnectFloatingDialog">
+
+<TextView
+    android:id="@+id/delWarn_text_Title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="8dp"
+    android:text=""
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textStyle="bold"
+    android:textSize="28sp" />
+
+<TextView
+    android:id="@+id/delWarn_text_message"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingTop="16dp"
+    android:paddingStart="8dp"
+    android:paddingBottom="24dp"
+    android:paddingEnd="8dp"
+    android:text=""
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textSize="24sp" />
+
+<Button
+    android:id="@+id/delWarn_button_cancel"
+    style="?android:attr/buttonBarButtonStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/colorPrimaryLight"
+    android:textSize="20sp"
+    android:text="@string/btn_keep"
+    android:textColor="@color/white"
+    android:layout_marginBottom="16dp"/>
+
+<Button
+    android:id="@+id/delWarn_button_proceed"
+    style="?android:attr/buttonBarButtonStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/design_default_color_error"
+    android:textSize="20sp"
+    android:text="@string/btn_delete"
+    android:textColor="@color/white"/>
+
+</LinearLayout>

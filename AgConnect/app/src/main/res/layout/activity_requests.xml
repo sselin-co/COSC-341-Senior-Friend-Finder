@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    tools:context=".Requests">
+
+    <TextView
+        android:id="@+id/main_text_settings"
+        android:layout_width="123dp"
+        android:layout_height="123dp"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_user"
+        android:focusable="true"
+        android:onClick="toSettings"
+        android:text="@string/btn_settings"
+        android:textAlignment="center"
+        android:textColor="@color/silver"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/main_image_logo"
+        android:layout_width="261dp"
+        android:layout_height="120dp"
+        android:clickable="true"
+        android:contentDescription="@string/desc_logo"
+        android:focusable="true"
+        android:onClick="toConnect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_simple" />
+
+    <TextView
+        android:id="@+id/main_text_connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_connect_100"
+        android:focusable="true"
+        android:onClick="toConnect"
+        android:text="@string/btn_connect"
+        android:textAlignment="center"
+        android:textColor="@color/silver"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/main_text_myConnections"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/main_text_myConnections"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_my_connections_100"
+        android:drawableTint="@color/colorPrimary"
+        android:focusable="true"
+        android:onClick="toMyConnections"
+        android:text="@string/btn_myConnections"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/main_text_events"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/main_text_connect" />
+
+    <TextView
+        android:id="@+id/main_text_events"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableTop="@drawable/ic_events_100"
+        android:focusable="true"
+        android:onClick="toEvents"
+        android:text="@string/btn_events"
+        android:textAlignment="center"
+        android:textColor="@color/silver"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/main_text_myConnections" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/rectangle_border"
+        android:padding="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_text_myConnections"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/requests_btn">
+
+        <RelativeLayout
+            android:layout_width="393dp"
+            android:layout_height="400dp"
+            android:background="@drawable/rectangle_border"
+            android:padding="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="209dp">
+
+            <TextView
+                android:id="@+id/friend_name1"
+                android:layout_width="263dp"
+                android:layout_height="39dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="7dp"
+                android:text="@string/name_harold"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/friend_last_message1"
+                android:layout_width="261dp"
+                android:layout_height="66dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="45dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/request_harold"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/friend_profile_pic1"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:onClick="toRequestProfile1"
+                android:src="@drawable/ic_user"
+                tools:layout_editor_absoluteX="51dp"
+                tools:layout_editor_absoluteY="260dp" />
+
+            <TextView
+                android:id="@+id/friend_name2"
+                android:layout_width="263dp"
+                android:layout_height="39dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="113dp"
+                android:layout_marginEnd="7dp"
+                android:text="@string/name_queen"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/friend_last_message2"
+                android:layout_width="261dp"
+                android:layout_height="66dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="155dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/request_queen"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/friend_profile_pic2"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="111dp"
+                android:onClick="toRequestProfile2"
+                android:src="@drawable/ic_user"
+                tools:layout_editor_absoluteX="51dp"
+                tools:layout_editor_absoluteY="260dp" />
+
+            <TextView
+                android:id="@+id/friend_name3"
+                android:layout_width="263dp"
+                android:layout_height="39dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="223dp"
+                android:layout_marginEnd="7dp"
+                android:text="@string/name_friendY"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/friend_last_message3"
+                android:layout_width="261dp"
+                android:layout_height="66dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="265dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/request_friendY"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/friend_profile_pic3"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="221dp"
+                android:onClick="toRequestProfile3"
+                android:src="@drawable/ic_user"
+                tools:layout_editor_absoluteX="51dp"
+                tools:layout_editor_absoluteY="260dp" />
+
+            <TextView
+                android:id="@+id/friend_name4"
+                android:layout_width="263dp"
+                android:layout_height="39dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="333dp"
+                android:layout_marginEnd="7dp"
+                android:text="@string/name_friendZ"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/friend_last_message4"
+                android:layout_width="261dp"
+                android:layout_height="66dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="375dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/request_friendZ"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/friend_profile_pic4"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="331dp"
+                android:onClick="toRequestProfile4"
+                android:src="@drawable/ic_user"
+                tools:layout_editor_absoluteX="51dp"
+                tools:layout_editor_absoluteY="260dp" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/myFriends_btn"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="136dp"
+        android:text="@string/btn_myConnections"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/requests_btn"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="136dp"
+        android:text="@string/btn_requests"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,187 @@
+<resources>
+    <string name="app_name">AgConnect</string>
+    <string name="app_subtitle">Kelowna\'s Friend-Finding App for Older Adults</string>
+
+    <!-- Button Text -->
+    <string name="btn_signUp">Create an Account</string>
+    <string name="btn_signIn">Sign In</string>
+    <string name="btn_settings">Settings</string>
+    <string name="btn_connect">Connect</string>
+    <string name="btn_myConnections">My Connections</string>
+    <string name="btn_events">Events</string>
+    <string name="btn_back">Back</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_upload">Upload</string>
+    <string name="btn_viewProfile">View Profile</string>
+    <string name="btn_requests">Requests</string>
+    <string name="btn_requestSend">Send Friend Request</string>
+    <string name="btn_requestDelete">Delete Request</string>
+    <string name="btn_requestReceived">Accept or decline</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_keep">Keep it</string>
+    <string name="btn_decline">Decline Friend Request</string>
+    <string name="btn_accept">Accept Friend Request</string>
+    <string name="btn_myFriends">My Friends</string>
+    <string name="btn_unfriend">Unfriend</string>
+    <string name="btn_stayFriends">Stay friends</string>
+    <string name="btn_chat">Chat</string>
+    <string name="btn_sendMsg">Send Message</string>
+    <string name="btn_viewEdit">View/Edit</string>
+    <string name="btn_tellMe">About AgConnect</string>
+    <string name="btn_delAcc">Delete Account</string>
+    <string name="btn_tellMe1">Our Purpose</string>
+    <string name="btn_tellMe2">Our Goals</string>
+    <string name="btn_tellMe3">Our Research</string>
+
+    <!-- User Info placeholders -->
+    <string name="user_name">%1$s</string>
+    <string name="user_objectives">I\'m here %1$s</string>
+    <string name="user_interests">I enjoy %1$s</string>
+    <string name="user_dob">%1$x</string>
+    <string name="user_pronoun">%1$s</string>
+    <string name="user_bio">More about me: %1$s</string>
+
+    <!-- Titles, subtitles, and labels -->
+    <string name="title_welcome">Welcome</string> <!-- append depending on if returning or new user -->
+    <string name="newUser">Let\'s create a profile together</string>
+    <string name="title_profileUser">This is how your profile will appear to other users.</string>
+    <string name="label_new">New!</string>
+    <string name="prefs_preferences">Preferences</string>
+    <string name="prefs_notifications">Notifications</string>
+    <string name="prefs_ageRange">Age Range</string>
+    <string name="prefs_ageRangeTo">to</string>
+    <string name="prefs_theme">Theme</string>
+    <string name="prefs_theme1">Simple</string>
+    <string name="prefs_theme2">Color</string>
+    <string name="prefs_activeStatus">Active Status</string>
+    <string name="prof_profile">Profile</string>
+    <string name="title_connect">Connect with Potential Friends</string>
+    <string name="title_profilePotential">Potential Friend\'s Profile</string>
+    <string name="request_sent">Friend request sent on %1$s</string>
+    <string name="request_received">Friend request received on %1$s</string>
+    <string name="request_accepted">You became friends on %1$s</string>
+    <string name="title_chat">Chat with %1$s</string>
+    <string name="title_events">Kelowna\'s Public Events</string>
+    <string name="title_event">Viewing Local Event:</string>
+    <string name="title_error">Error</string>
+    <string name="eventSortDate">date</string>
+    <string name="eventSortLocation">location</string>
+    <string name="eventSortPrice">price</string>
+    <string name="event_price">$%1$s</string>
+
+    <!-- Profile Questions -->
+    <string name="q_name">What is your name?</string>
+    <string name="q_objective">Why did you download AgConnect?</string>
+    <string-array name="objective_array">
+        <item>To chat with people</item>
+        <item>To meet new friends</item>
+        <item>To find local event</item>
+    </string-array>
+    <string name="q_interests">What are some of your interests?</string>
+    <string-array name="interest_array">
+        <item>Being outdoors</item>
+        <item>Sports and recreation</item>
+        <item>Self-care activities</item>
+        <item>Cuisine</item>
+        <item>Games</item>
+        <item>Movies</item>
+        <item>Music</item>
+        <item>Other</item>
+    </string-array>
+    <string name="q_dob">What is your date of birth?</string>
+
+    <!-- Instructions -->
+    <string name="ins_signUp">Enter your email and a password to sign up for AgConnect.</string>
+    <string name="ins_enterEandP">Enter an email and password</string>
+    <string name="ins_enterE">Enter an email</string>
+    <string name="ins_enterP">Enter a password</string>
+    <string name="ins_signUpThank">Thank you for signing up!</string>
+    <string name="ins_createProfile">Let\'s create a profile together</string>
+    <string name="ins_selectAllApply">Please select all that apply.</string>
+    <string name="ins_selectOne">Please select one.</string>
+    <string name="ins_pic">When you tap the upload button it will bring you to the photos on your phone. Select one you want to show to potential friends.</string>
+    <string name="ins_bio">Type more about yourself here…</string>
+    <string name="ins_profile_editDelete">Tap the item to edit\nTap the \u00A0 \u00A0 \u00A0to delete</string>
+    <string name="ins_profile_request">To chat send a friend request, and then wait for them to accept</string>
+    <string name="ins_chat">Tap on a prompt or type your own message.\nYou are both interested in:</string>
+    <string name="ins_enterMsg">Enter your message here</string>
+    <string name="ins_eventsSort">Sort by:</string>
+    <string name="ins_events">Tap on an event for more details</string>
+    <string name="ins_delAccount">Are you sure you want to permanently delete your account?</string>
+    <string name="ins_delAccountFINAL">This cannot be reversed. Are you sure you want to permanently delete your account?</string>
+    <string name="ins_prefs_notifications">Turn notifications on or off</string>
+    <string name="ins_error">Sorry! It looks like we missed something!</string>
+
+    <!-- Privacy Notes -->
+    <string name="privacy_notRequired">This is NOT required, so only share if you are comfortable doing so.</string>
+    <string name="privacy_name">Privacy Note: Your name will be displayed to other users.</string>
+    <string name="privacy_dob">Privacy Note: Only your age will be displayed to other users.</string>
+    <string name="privacy_pic">Privacy Note: Your picture will be displayed to other users and can help with finding new friends</string>
+    <string name="privacy_bio">Privacy Note: Please be mindful of the information you are sharing with other users.</string>
+    <string name="title_activity_sign_up">Sign up</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <!-- Content Descriptions and Hints -->
+    <string name="desc_settingsUserImg">Settings menu button that has the user\'s profile image as the icon</string>
+    <string name="desc_logo">Logo</string>
+    <string name="desc_connect">Button that navigates the user to the Connect page</string>
+    <string name="desc_myConnections">Button that navigates the user to their My Connections page</string>
+    <string name="desc_events">Button that navigates the user to the Events page</string>
+    <string name="desc_eventPic">Picture of local event</string>
+    <string name="hint_ageRangeMin">Min</string>
+    <string name="hint_ageRangeMax">Max</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="user_goals_none">No goals specified</string>
+    <string name="user_interests_none">No interests specified.</string>
+    <string name="user_dob_none">Age not specified.</string>
+    <string name="user_pronoun_none">Preferred pronoun not specified.</string>
+    <string name="user_bio_none">Additional biography not provided</string>
+    <string name="hint_name">Enter your name here</string>
+    <string name="chat_sent">Message sent as of %1$s</string>
+
+    <!-- Potential Friend Profile Information -->
+    <string name="name_user">Bea R.</string>
+    <string name="age_user">Age: 99</string>
+    <string name="more_user">I walked into a bar. I order a beer. I order 0 beers. I order 99999999999 beers. i order a lizard. I order -1 beers. I order a ueicbksjdhd.</string>
+    <string name="name_harold">Harold</string>
+    <string name="age_harold">Age: 73</string>
+    <string name="more_harold">Hello! I\'m Harold, a famous ShutterShock model with connections around the globe. I am also a meme on the Internet.</string>
+    <string name="lastMsg_harold">What is up my friend?</string>
+    <string name="request_harold">Friend request received on 20 March 2020</string>
+    <string name="name_queen">Queen Elizabeth II</string>
+    <string name="age_queen">Age: 93</string>
+    <string name="more_queen">Ruling the Commonwealth is exhausting business! I am looking for posh social gatherings with interesting conversation.</string>
+    <string name="lastMsg_queen">Did you hear my message to the world the other day?</string>
+    <string name="request_queen">Friend request sent on 01 January 2020</string>
+    <string name="name_friendX">Charlie</string>
+    <string name="lastMsg_friendX">Want to go get some cider?</string>
+    <string name="request_friendX">Friend request sent on 19 March 2020</string>
+    <string name="name_friendY">Deanna</string>
+    <string name="lastMsg_friendY">What kind of cheese do you like?</string>
+    <string name="request_friendY">Friend request sent on 20 March 2020</string>
+    <string name="name_friendZ">Vera</string>
+    <string name="request_friendZ">Friend request received on 20 March 2020</string>
+
+    <!-- Profile Pronouns -->
+    <string name="pro_he">He/Him</string>
+    <string name="pro_she">She/Her</string>
+    <string name="pro_they">They/Them</string>
+    <!-- Question Prompts -->
+    <string name="prompt_question1">Hello! Looks like we both enjoy movies. What\'s a recent favorite?</string>
+    <string name="prompt_question2">Hi! We both enjoy good food, what\'s your favorite meal to make at home?</string>
+    <string name="prompt_question3">Hello! Our area has great outdoor activities, where are some of your favorite spots?</string>
+    <string name="prompt_q1">1</string>
+    <string name="prompt_q2">2</string>
+    <string name="prompt_q3">3</string>
+    <string name="desc_profile_img">Image of user profile picture</string>
+
+</resources>
