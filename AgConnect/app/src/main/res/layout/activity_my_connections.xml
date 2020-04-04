@@ -9,15 +9,15 @@
 
     <TextView
         android:id="@+id/main_text_settings"
-        android:layout_width="123dp"
-        android:layout_height="123dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:clickable="true"
-        android:drawableTop="@drawable/ic_user"
+        android:drawableTop="@drawable/ic_settings_black_24dp"
         android:focusable="true"
         android:onClick="toSettings"
         android:text="@string/btn_settings"
         android:textAlignment="center"
-        android:textColor="@color/silver"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,7 +44,7 @@
         android:onClick="toConnect"
         android:text="@string/btn_connect"
         android:textAlignment="center"
-        android:textColor="@color/silver"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/main_text_myConnections"
@@ -57,11 +57,12 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:drawableTop="@drawable/ic_my_connections_100"
+        android:drawableTint="@color/colorPrimary"
         android:focusable="true"
         android:onClick="toMyConnections"
         android:text="@string/btn_myConnections"
         android:textAlignment="center"
-        android:textColor="@color/silver"
+        android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/main_text_events"
@@ -78,7 +79,7 @@
         android:onClick="toEvents"
         android:text="@string/btn_events"
         android:textAlignment="center"
-        android:textColor="@color/silver"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,186 +100,110 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/requests_btn">
 
-        <RelativeLayout
-            android:layout_width="393dp"
-            android:layout_height="400dp"
-            android:background="@drawable/rectangle_border"
-            android:padding="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="209dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/friend_name1"
-                android:layout_width="263dp"
-                android:layout_height="39dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="3dp"
-                android:layout_marginEnd="7dp"
-                android:text="@string/name_harold"
-                android:textSize="24sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:onClick="toFriendProfileAgHelp">
+                <ImageView
+                    android:id="@+id/connections_image1"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="4dp"
+                    android:adjustViewBounds="true"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@string/desc_profile_img"
+                    android:src="@drawable/ic_user" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/friend_last_message1"
-                android:layout_width="261dp"
-                android:layout_height="66dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="45dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/lastMsg_harold"
-                android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/connections_name1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name_AgConnectHelp"
+                        android:textColor="@color/black"
+                        android:textSize="24sp" />
+                    <TextView
+                        android:id="@+id/connections_message1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/lastMsg_AgConnectHelp"
+                        android:textSize="18sp" />
+                </LinearLayout>
 
-            <ImageView
-                android:id="@+id/friend_profile_pic1"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="1dp"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/desc_profile_img"
-                android:onClick="toFriendProfile1"
-                android:src="@drawable/ic_user"
-                app:srcCompat="@drawable/profile_harold"
-                tools:layout_editor_absoluteX="51dp"
-                tools:layout_editor_absoluteY="260dp" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/friend_name2"
-                android:layout_width="263dp"
-                android:layout_height="39dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="113dp"
-                android:layout_marginEnd="7dp"
-                android:text="@string/name_queen"
-                android:textSize="24sp" />
+            <LinearLayout
+                android:id="@+id/harold_linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="toFriendProfileHarold"
+                android:orientation="horizontal"
+                android:visibility="invisible">
 
-            <TextView
-                android:id="@+id/friend_last_message2"
-                android:layout_width="261dp"
-                android:layout_height="66dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="155dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/lastMsg_queen"
-                android:textSize="18sp" />
+                <ImageView
+                    android:id="@+id/requests_image_harold"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/desc_profile_img"
+                    android:src="@drawable/ic_user"
+                    app:srcCompat="@drawable/profile_harold" />
 
-            <ImageView
-                android:id="@+id/friend_profile_pic2"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="111dp"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/desc_profile_img"
-                android:onClick="toFriendProfile2"
-                android:src="@drawable/ic_user"
-                app:srcCompat="@drawable/profile_thequeen"
-                tools:layout_editor_absoluteX="51dp"
-                tools:layout_editor_absoluteY="260dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/friend_name3"
-                android:layout_width="263dp"
-                android:layout_height="39dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="223dp"
-                android:layout_marginEnd="7dp"
-                android:text="@string/name_friendX"
-                android:textSize="24sp" />
+                    <TextView
+                        android:id="@+id/requests_name_harold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name_harold"
+                        android:textColor="@color/black"
+                        android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/friend_last_message3"
-                android:layout_width="261dp"
-                android:layout_height="66dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="265dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/lastMsg_friendX"
-                android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/connections_message2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lastMsg_harold"
+                        android:textSize="18sp" />
+                </LinearLayout>
 
-            <ImageView
-                android:id="@+id/friend_profile_pic3"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="221dp"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/desc_profile_img"
-                android:onClick="toFriendProfile3"
-                android:src="@drawable/ic_user"
-                tools:layout_editor_absoluteX="51dp"
-                tools:layout_editor_absoluteY="260dp" />
-
-            <TextView
-                android:id="@+id/friend_name4"
-                android:layout_width="263dp"
-                android:layout_height="39dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="333dp"
-                android:layout_marginEnd="7dp"
-                android:text="@string/name_friendY"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/friend_last_message4"
-                android:layout_width="261dp"
-                android:layout_height="66dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="375dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/lastMsg_friendY"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:id="@+id/friend_profile_pic4"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="331dp"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/desc_profile_img"
-                android:onClick="toFriendProfile4"
-                android:src="@drawable/ic_user"
-                tools:layout_editor_absoluteX="51dp"
-                tools:layout_editor_absoluteY="260dp" />
-        </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
     <Button
         android:id="@+id/myFriends_btn"
         android:layout_width="150dp"
         android:layout_height="60dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/colorPrimaryLight"
         android:text="@string/btn_myConnections"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/main_text_settings" />
 
     <Button
         android:id="@+id/requests_btn"
         android:layout_width="150dp"
         android:layout_height="60dp"
-        android:layout_marginStart="212dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginEnd="24dp"
+        android:onClick="toRequests"
         android:text="@string/btn_requests"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/myFriends_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

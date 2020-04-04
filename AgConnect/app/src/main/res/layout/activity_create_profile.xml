@@ -7,35 +7,8 @@
     android:layout_margin="8dp"
     tools:context=".CreateProfile">
 
-    <Button
-        android:id="@+id/create_button_next"
-        android:layout_width="140dp"
-        android:layout_height="60dp"
-        android:onClick="onClick"
-        android:text="@string/btn_next"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/create_button_back" />
-
     <TextView
-        android:id="@+id/create_title_profileUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/title_profileUser"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/create_button_back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/create_text_question"
+        android:id="@+id/create_text_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -48,109 +21,6 @@
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/create_editText"
-        android:layout_width="260dp"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/create_title_profileUser"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_text_privacy" />
-
-    <Button
-        android:id="@+id/create_button_back"
-        android:layout_width="140dp"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/colorAccentPink"
-        android:text="@string/btn_back"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/create_button_next"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <CheckBox
-        android:id="@+id/checkBox6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox7"
-        app:layout_constraintStart_toStartOf="@+id/checkBox1"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
-
-    <CheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox5"
-        app:layout_constraintStart_toStartOf="@+id/checkBox1"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
-
-    <CheckBox
-        android:id="@+id/checkBox1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="8dp"
-        android:text=""
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_text_privacy" />
-
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox4"
-        app:layout_constraintStart_toStartOf="@+id/checkBox1"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
-
-    <CheckBox
-        android:id="@+id/checkBox7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox8"
-        app:layout_constraintStart_toStartOf="@+id/checkBox1"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox6" />
-
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox3"
-        app:layout_constraintStart_toStartOf="@+id/checkBox1"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox1" />
-
-    <CheckBox
-        android:id="@+id/checkBox8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/create_title_profileUser"
-        app:layout_constraintStart_toStartOf="@+id/checkBox1"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox7" />
-
-    <CheckBox
-        android:id="@+id/checkBox5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox6"
-        app:layout_constraintStart_toStartOf="@+id/checkBox1"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
 
     <TextView
         android:id="@+id/create_text_privacy"
@@ -166,7 +36,239 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_text_question" />
+        app:layout_constraintTop_toBottomOf="@+id/create_text_title" />
+
+    <EditText
+        android:id="@+id/create_edit_name"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_enterName"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/create_text_instructions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_text_privacy" />
+
+    <RadioGroup
+        android:id="@+id/create_rg_pronouns"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/create_text_instructions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_text_title">
+
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/create_cb_goal1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/create_cb_goal2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_text_title" />
+
+    <CheckBox
+        android:id="@+id/create_cb_goal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/create_cb_goal3"
+        app:layout_constraintStart_toStartOf="@+id/create_cb_goal1"
+        app:layout_constraintTop_toBottomOf="@+id/create_cb_goal1" />
+
+    <CheckBox
+        android:id="@+id/create_cb_goal3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/create_text_instructions"
+        app:layout_constraintStart_toStartOf="@+id/create_cb_goal2"
+        app:layout_constraintTop_toBottomOf="@+id/create_cb_goal2" />
+
+    <CheckBox
+        android:id="@+id/create_cb_interest1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:text=""
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/create_cb_interest2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_text_title" />
+
+    <CheckBox
+        android:id="@+id/create_cb_interest2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/create_cb_interest3"
+        app:layout_constraintStart_toStartOf="@+id/create_cb_interest1"
+        app:layout_constraintTop_toBottomOf="@+id/create_cb_interest1" />
+
+    <CheckBox
+        android:id="@+id/create_cb_interest3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/create_cb_interest4"
+        app:layout_constraintStart_toStartOf="@+id/create_cb_interest1"
+        app:layout_constraintTop_toBottomOf="@+id/create_cb_interest2" />
+
+    <CheckBox
+        android:id="@+id/create_cb_interest4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/create_cb_interest5"
+        app:layout_constraintStart_toStartOf="@+id/create_cb_interest1"
+        app:layout_constraintTop_toBottomOf="@+id/create_cb_interest3" />
+
+    <CheckBox
+        android:id="@+id/create_cb_interest5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/create_cb_interest6"
+        app:layout_constraintStart_toStartOf="@+id/create_cb_interest1"
+        app:layout_constraintTop_toBottomOf="@+id/create_cb_interest4" />
+
+    <CheckBox
+        android:id="@+id/create_cb_interest6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/create_cb_interest7"
+        app:layout_constraintStart_toStartOf="@+id/create_cb_interest1"
+        app:layout_constraintTop_toBottomOf="@+id/create_cb_interest5" />
+
+    <CheckBox
+        android:id="@+id/create_cb_interest7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/create_cb_interest8"
+        app:layout_constraintStart_toStartOf="@+id/create_cb_interest1"
+        app:layout_constraintTop_toBottomOf="@+id/create_cb_interest6" />
+
+    <CheckBox
+        android:id="@+id/create_cb_interest8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/create_text_instructions"
+        app:layout_constraintStart_toStartOf="@+id/create_cb_interest1"
+        app:layout_constraintTop_toBottomOf="@+id/create_cb_interest7" />
+
+    <TextView
+        android:id="@+id/create_text_dob"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/underline"
+        android:text="@string/hint_dobDate"
+        android:textAlignment="center"
+        android:textColor="@color/grey"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/create_text_instructions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_text_privacy" />
+
+    <EditText
+        android:id="@+id/create_edit_bio"
+        android:layout_width="280dp"
+        android:layout_height="260dp"
+        android:background="@drawable/rectangle_border"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/ins_bio"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:padding="4dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/create_text_instructions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_text_privacy" />
+
+    <TextView
+        android:id="@+id/create_text_instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/create_button_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/create_button_back"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/colorAccentPink"
+        android:onClick="onBackClick"
+        android:text="@string/btn_back"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/create_button_next"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/create_button_next"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:onClick="onNextClick"
+        android:text="@string/btn_next"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/create_button_back" />
+
+    <ImageView
+        android:id="@+id/create_profilePicture"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/desc_profile_img"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/create_button_upload"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_text_privacy"
+        app:srcCompat="@drawable/ic_user" />
 
     <Button
         android:id="@+id/create_button_upload"
@@ -177,9 +279,19 @@
         android:text="@string/btn_upload"
         android:textSize="24sp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/create_title_profileUser"
+        app:layout_constraintBottom_toTopOf="@+id/create_text_instructions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_profilePicture" />
+
+    <TextView
+        android:id="@+id/create_text_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/create_text_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_text_privacy" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

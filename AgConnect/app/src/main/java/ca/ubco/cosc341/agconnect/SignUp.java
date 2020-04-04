@@ -13,7 +13,6 @@ import android.widget.Toast;
 public class SignUp extends AppCompatActivity {
 
     EditText email, password;
-    User user = new User();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,7 @@ public class SignUp extends AppCompatActivity {
         String emailString = email.getText().toString();
         String passwordString = password.getText().toString();
 
-        user.setLoginCredentials(emailString, passwordString);
+        AppGlobals.user = new User(emailString, passwordString);
 
         // Currently only checks if the fields have anything in them
         // Needs strings to be taken from strings.xml
@@ -57,7 +56,6 @@ public class SignUp extends AppCompatActivity {
                 @Override
                 public void run() {
                     Intent intent = new Intent(SignUp.this, CreateProfile.class);
-                    intent.putExtra("user", user);
                     Toast toast = Toast.makeText(SignUp.this, getString(R.string.ins_createProfile), Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 800);
                     toast.show();

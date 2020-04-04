@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:drawableTop="@drawable/ic_user"
+        android:drawableTop="@drawable/ic_settings_black_24dp"
         android:focusable="true"
         android:onClick="toSettings"
         android:text="@string/btn_settings"

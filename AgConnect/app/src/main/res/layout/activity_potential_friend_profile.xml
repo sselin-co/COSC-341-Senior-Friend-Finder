@@ -12,12 +12,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:drawableTop="@drawable/ic_user"
+        android:drawableTop="@drawable/ic_settings_black_24dp"
         android:focusable="true"
         android:onClick="toSettings"
         android:text="@string/btn_settings"
         android:textAlignment="center"
-        android:textColor="@color/silver"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,7 +25,7 @@
     <TextView
         android:id="@+id/title_potential_friend"
         android:layout_width="375dp"
-        android:layout_height="33dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/title_profilePotential"
         android:textAlignment="center"
@@ -52,11 +52,12 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:drawableTop="@drawable/ic_connect_100"
+        android:drawableTint="@color/colorPrimary"
         android:focusable="true"
+        android:onClick="toConnect"
         android:text="@string/btn_connect"
         android:textAlignment="center"
-        android:drawableTint="@color/colorPrimary"
-        android:textColor="@color/silver"
+        android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/main_text_myConnections"
@@ -73,7 +74,7 @@
         android:onClick="toMyConnections"
         android:text="@string/btn_myConnections"
         android:textAlignment="center"
-        android:textColor="@color/silver"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/main_text_events"
@@ -90,7 +91,7 @@
         android:onClick="toEvents"
         android:text="@string/btn_events"
         android:textAlignment="center"
-        android:textColor="@color/silver"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,24 +100,28 @@
 
     <ImageView
         android:id="@+id/profile_image2"
-        android:layout_width="184dp"
-        android:layout_height="136dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/back"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/rectangle_border"
         android:contentDescription="@string/desc_profile_img"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_potential_friend" />
+        app:layout_constraintTop_toBottomOf="@+id/main_text_settings" />
 
     <LinearLayout
         android:id="@+id/bio_name_obj"
-        android:layout_width="186dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/rectangle_border"
         android:orientation="vertical"
+        android:padding="4dp"
         app:layout_constraintBottom_toTopOf="@+id/bio_age_pronoun"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profile_image2"
         app:layout_constraintTop_toTopOf="@+id/profile_image2">
 
         <TextView
@@ -124,28 +129,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/back"
             android:text="@string/user_name"
-            android:textAlignment="center"
-            android:textSize="23sp" />
+            android:textColor="@color/black"
+            android:textSize="23sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/objective"
             android:layout_width="match_parent"
-            android:layout_height="34dp"
-            android:background="@drawable/back"
+            android:layout_height="wrap_content"
             android:text="@string/user_objectives"
-            android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="14sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/bio_age_pronoun"
-        android:layout_width="370dp"
-        android:layout_height="35dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
+        android:background="@drawable/rectangle_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
@@ -156,8 +163,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/back"
             android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="17sp" />
 
         <TextView
@@ -165,19 +172,23 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/back"
             android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="17sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/bio_interests_more"
-        android:layout_width="370dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/back"
+        android:background="@drawable/rectangle_border"
         android:orientation="vertical"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
         app:layout_constraintBottom_toTopOf="@+id/warning"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -187,42 +198,45 @@
             android:id="@+id/interests"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginBottom="8dp"
             android:text="@string/user_interests"
             android:textAlignment="textStart"
+            android:textColor="@color/black"
             android:textSize="17sp" />
 
         <TextView
             android:id="@+id/more"
-            android:layout_width="357dp"
-            android:layout_height="84dp"
-            android:layout_marginStart="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/user_bio"
             android:textAlignment="textStart"
+            android:textColor="@color/black"
             android:textSize="17sp" />
     </LinearLayout>
 
     <Button
         android:id="@+id/friend_request_btn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/rounded_corners_btn"
         android:backgroundTint="@color/colorAccentTeal"
         android:onClick="onRequestClick"
         android:text="@string/btn_requestSend"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/main_text_events"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/back_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
         android:background="@drawable/rounded_corners_btn"
         android:backgroundTint="@color/colorAccent"
         android:onClick="onBackClick"
         android:text="@string/btn_back"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/main_text_connect"
         app:layout_constraintStart_toStartOf="parent" />
 

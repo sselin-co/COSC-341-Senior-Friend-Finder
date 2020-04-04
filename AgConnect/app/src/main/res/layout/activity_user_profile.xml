@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:drawableTop="@drawable/ic_user"
+        android:drawableTop="@drawable/ic_settings_black_24dp"
         android:focusable="true"
         android:onClick="toSettings"
         android:text="@string/btn_settings"
@@ -70,6 +70,7 @@
         app:layout_constraintTop_toTopOf="@+id/profile_text_instructions"
         app:srcCompat="@android:drawable/ic_delete" />
 
+
     <ImageView
         android:id="@+id/profile_del_Picture"
         android:layout_width="wrap_content"
@@ -96,92 +97,116 @@
         app:layout_constraintTop_toBottomOf="@+id/profile_text_instructions"
         app:srcCompat="@drawable/ic_user" />
 
-    <TextView
-        android:id="@+id/profile_text_Name"
+    <ScrollView
+        android:id="@+id/scrollView_name_goals"
         android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fadeScrollbars="false"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarSize="16dp"
+        android:translationZ="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_image_Picture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profile_image_Picture"
+        app:layout_constraintTop_toTopOf="@+id/profile_image_Picture"
+        android:background="@drawable/rectangle_border">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginEnd="16dp">
+
+            <TextView
+                android:id="@+id/profile_text_Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:translationZ="2dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <ImageView
+                    android:id="@+id/profile_del_Goals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/ins_profile_editDelete"
+                    android:foregroundGravity="top"
+                    android:onClick="deleteItem"
+                    android:translationZ="4dp"
+                    app:srcCompat="@android:drawable/ic_delete" />
+
+                <TextView
+                    android:id="@+id/profile_text_Goals"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:translationZ="2dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:textAlignment="textStart"
-        android:textColor="@color/black"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:translationZ="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/profile_image_Picture"
-        app:layout_constraintTop_toTopOf="@+id/profile_image_Picture" />
-
-    <ImageView
-        android:id="@+id/profile_del_Goals"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/ins_profile_editDelete"
-        android:foregroundGravity="top"
-        android:onClick="deleteItem"
-        android:translationZ="4dp"
-        app:layout_constraintStart_toStartOf="@+id/profile_text_Name"
-        app:layout_constraintTop_toTopOf="@+id/profile_text_Goals"
-        app:srcCompat="@android:drawable/ic_delete" />
-
-    <TextView
-        android:id="@+id/profile_text_Goals"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:translationZ="2dp"
-        app:layout_constraintEnd_toEndOf="@+id/profile_text_Name"
-        app:layout_constraintStart_toEndOf="@+id/profile_del_Goals"
-        app:layout_constraintTop_toBottomOf="@+id/profile_text_Name" />
-
-    <ImageView
-        android:id="@+id/profile_del_Birthday"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:contentDescription="@string/ins_profile_editDelete"
-        android:onClick="deleteItem"
-        android:translationZ="4dp"
+        android:background="@drawable/rectangle_border"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/profile_text_Birthday"
-        app:srcCompat="@android:drawable/ic_delete" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_image_Picture">
 
-    <TextView
-        android:id="@+id/profile_text_Birthday"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:translationZ="2dp"
-        app:layout_constraintEnd_toEndOf="@+id/profile_image_Picture"
-        app:layout_constraintStart_toEndOf="@+id/profile_del_Birthday"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image_Picture" />
+        <ImageView
+            android:id="@+id/profile_del_Birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/ins_profile_editDelete"
+            android:onClick="deleteItem"
+            android:translationZ="4dp"
+            app:srcCompat="@android:drawable/ic_delete" />
 
-    <ImageView
-        android:id="@+id/profile_del_Pronoun"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:contentDescription="@string/ins_profile_editDelete"
-        android:onClick="deleteItem"
-        android:translationZ="4dp"
-        app:layout_constraintStart_toEndOf="@+id/profile_text_Birthday"
-        app:layout_constraintTop_toTopOf="@+id/profile_text_Pronoun"
-        app:srcCompat="@android:drawable/ic_delete" />
+        <TextView
+            android:id="@+id/profile_text_Birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:translationZ="2dp" />
 
-    <TextView
-        android:id="@+id/profile_text_Pronoun"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:translationZ="2dp"
-        app:layout_constraintEnd_toEndOf="@+id/profile_text_Name"
-        app:layout_constraintStart_toEndOf="@+id/profile_del_Pronoun"
-        app:layout_constraintTop_toBottomOf="@+id/profile_text_Goals" />
+        <ImageView
+            android:id="@+id/profile_del_Pronoun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="74dp"
+            android:contentDescription="@string/ins_profile_editDelete"
+            android:onClick="deleteItem"
+            android:textAlignment="viewEnd"
+            android:translationZ="4dp"
+            app:srcCompat="@android:drawable/ic_delete" />
+
+        <TextView
+            android:id="@+id/profile_text_Pronoun"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:translationZ="2dp" />
+
+    </LinearLayout>
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -199,7 +224,7 @@
         app:layout_constraintBottom_toTopOf="@+id/profile_text_myConnections"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_text_Birthday">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -209,6 +234,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -233,6 +260,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -306,16 +334,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/profile_text_myConnections" />
 
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/rectangle_border"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="@+id/profile_text_Name"
-        app:layout_constraintStart_toStartOf="@+id/profile_image_Picture"
-        app:layout_constraintTop_toTopOf="@+id/profile_image_Picture">
 
-    </FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

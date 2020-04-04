@@ -5,13 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 
 public class MyConnections_MyFriends extends AppCompatActivity {
+
+    LinearLayout haroldLinearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_connections);
+        AppGlobals.saveUserData(this);
+        haroldLinearLayout = findViewById(R.id.harold_linearLayout);
+
+        if(AppGlobals.friendsWithHarold){
+            haroldLinearLayout.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -25,27 +34,15 @@ public class MyConnections_MyFriends extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void toFriendProfile1(View view){
+    public void toFriendProfileHarold(View view){
         Intent intent = new Intent(this, FriendProfile.class);
         intent.putExtra("name",getString(R.string.name_harold));
         startActivity(intent);
     }
 
-    public void toFriendProfile2(View view){
+    public void toFriendProfileAgHelp(View view) {
         Intent intent = new Intent(this, FriendProfile.class);
-        intent.putExtra("name",getString(R.string.name_queen));
-        startActivity(intent);
-    }
-
-    public void toFriendProfile3(View view) {
-        Intent intent = new Intent(this, FriendProfile.class);
-        intent.putExtra("name",getString(R.string.user_name));
-        startActivity(intent);
-    }
-
-    public void toFriendProfile4(View view) {
-        Intent intent = new Intent(this, FriendProfile.class);
-        intent.putExtra("name",getString(R.string.user_name));
+        intent.putExtra("name",getString(R.string.name_AgConnectHelp));
         startActivity(intent);
     }
 
@@ -56,6 +53,11 @@ public class MyConnections_MyFriends extends AppCompatActivity {
 
     public void toSettings(View view){
         Intent intent = new Intent(this, SettingsMenu.class);
+        startActivity(intent);
+    }
+
+    public void toRequests(View view){
+        Intent intent = new Intent (this, Requests.class);
         startActivity(intent);
     }
 

@@ -78,7 +78,7 @@ public class Connect extends AppCompatActivity {
         TextView profileName = findViewById(R.id.profile_name);
         String format;
         if (profileImageArray[imgCounter] == R.drawable.ic_user){
-            String name = this.getResources().getString(R.string.name_user);
+            String name = this.getResources().getString(R.string.name_bea);
             format = this.getString(R.string.user_name, name);
             profileName.setText(format);
         }

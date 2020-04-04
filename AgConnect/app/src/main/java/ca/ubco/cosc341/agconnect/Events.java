@@ -1,25 +1,25 @@
 package ca.ubco.cosc341.agconnect;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class Events extends AppCompatActivity {
 
     private LinearLayout layout_eventList;
-    private TextView filter_date, filter_location, filter_price;
-    private EventList allEvents = new EventList(), loc_asc = new EventList(), price_asc = new EventList();
+    private TextView text_sortByDate, text_sortByLocation, text_sortByPrice;
+    private EventList date_asc = new EventList(), loc_asc = new EventList(), price_asc = new EventList(); //ascending: 1 2 3
+    private EventList date_des = new EventList(), loc_des = new EventList(), price_des = new EventList(); // descending 4 5 6
+    private int eventListNum = 1;
     private int eventIdx;
 
     @Override
@@ -29,79 +29,84 @@ public class Events extends AppCompatActivity {
 
         //Link to ID's
         layout_eventList = findViewById(R.id.events_layout_eventList);
-        filter_date = findViewById(R.id.events_text_filter1);
-        filter_location = findViewById(R.id.events_text_filter2);
-        filter_price = findViewById(R.id.events_text_filter3);
+        text_sortByDate = findViewById(R.id.events_text_filter1);
+        text_sortByLocation = findViewById(R.id.events_text_filter2);
+        text_sortByPrice = findViewById(R.id.events_text_filter3);
 
-        //Set tags for sorting
-        filter_date.setTag(0);
-        setSortImgTag(filter_date);
-        filter_location.setTag(0);
-        filter_price.setTag(0);
+        //Set tags for sorting. 0 = no sort. 1 = ascending. 2 = descending.
+        text_sortByDate.setTag(0);
+        text_sortByLocation.setTag(0);
+        text_sortByPrice.setTag(0);
 
-        //read from the text file and display the events
-        loadEvents();
-        displayEvents(allEvents);
+        //set sort icon (default is date)
+        setSortImgTag(text_sortByDate);
+
+        //reads from text file in assets and loads events into linked list
+        loadEvents(); // note: the events that were read from the file are already sorted by date
+
+        initializeEventLists();
+
+        //displays the events
+        displayEvents(date_asc);
+        eventListNum = 1;
 
         //Filter by buttons
-        filter_date.setOnClickListener(new View.OnClickListener() {
+        text_sortByDate.setOnClickListener(new View.OnClickListener() { //when the SORT-BY-DATE is tapped
             @Override
             public void onClick(View v) {
-                removeSortImgTag(filter_location);
-                removeSortImgTag(filter_price);
-                setSortImgTag(filter_date);
-                setSort(filter_date, allEvents);
+                removeSortImgTag(text_sortByLocation); //remove the icon from location
+                removeSortImgTag(text_sortByPrice); //remove the icon from price
+                setSortImgTag(text_sortByDate); // show icon on date
+                eventListNum = 1;
+                setSort(text_sortByDate, date_asc); //take this linked list, check its tag, sort it accordingly, and display it
             }
         });
 
-        filter_location.setOnClickListener(new View.OnClickListener() {
+        text_sortByLocation.setOnClickListener(new View.OnClickListener() { //when the SORT-BY-LOCATION is tapped
             @Override
             public void onClick(View v) {
-                removeSortImgTag(filter_date);
-                removeSortImgTag(filter_price);
-                setSortImgTag(filter_location);
-                loc_asc = allEvents.sortEventsByLocation();
-                setSort(filter_location, loc_asc);
+                removeSortImgTag(text_sortByDate); //remove the icon on date
+                removeSortImgTag(text_sortByPrice); //remove the icon on price
+                setSortImgTag(text_sortByLocation); //show icon on location
+                eventListNum = 2;
+                setSort(text_sortByLocation, loc_asc); //take this linked list, check its tag, sort it accordingly, and display it
             }
         });
 
-        filter_price.setOnClickListener(new View.OnClickListener() {
+        text_sortByPrice.setOnClickListener(new View.OnClickListener() { //when the SORT-BY-PRICE is tapped
             @Override
             public void onClick(View v) {
-                removeSortImgTag(filter_date);
-                removeSortImgTag(filter_location);
-                setSortImgTag(filter_price);
-                price_asc = allEvents.sortEventsByPrice();
-                setSort(filter_price, price_asc);
+                removeSortImgTag(text_sortByDate); //remove the icon on date
+                removeSortImgTag(text_sortByLocation); //remove the icon on location
+                setSortImgTag(text_sortByPrice); //show icon on price
+                eventListNum = 3;
+                setSort(text_sortByPrice, price_asc); //take this linked list, check its tag, sort it accordingly, and display it
 
             }
         });
     }
 
     private void setSort(TextView textView, EventList asc){
-        if( (int)textView.getTag() == 1){
-            displayEvents(asc);
-        }else if( (int)textView.getTag() == 2){
-            EventList desc = new EventList();
-            int max = asc.size();
-            for(eventIdx = 0; eventIdx < max; eventIdx++){
-                desc.add(eventIdx, asc.get(max-eventIdx-1));
-            }
-            displayEvents(desc);
+        if( (int)textView.getTag() == 1){ // if the tag = 1
+            //eventListNum += 0;
+            displayEvents(asc); //display the linked list received
+        }else if( (int)textView.getTag() == 2){ // if the tag = 2
+            eventListNum += 3;
+            displayEvents(reverse(asc)); // display list in reverse order
         }
     }
 
     private void setSortImgTag(TextView textView){
         if((int)textView.getTag() == 0 || (int)textView.getTag() == 2){
-            setSortDown(textView);
+            setSortDown(textView); //icon and tag change
         }else if((int)textView.getTag() == 1){
-            setSortUp(textView);
+            setSortUp(textView); //icon and tag change
         }
     }
 
     private void setSortDown(TextView textView){
-        textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_arrow_down_24dp, 0, 0, 0);
-        textView.setTag(1);
+        textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_arrow_down_24dp, 0, 0, 0); //have the arrow face down
+        textView.setTag(1); //tag is now 1
     }
 
     private void setSortUp(TextView textView){
@@ -116,8 +121,28 @@ public class Events extends AppCompatActivity {
 
     }
 
+    private void initializeEventLists(){
+        //ascending
+        loc_asc = date_asc.sortEventsByLocation();
+        price_asc = date_asc.sortEventsByPrice();
+
+        //descending
+        date_des = reverse(date_asc);
+        loc_des = reverse(loc_asc);
+        price_des = reverse(price_asc);
+    }
+
+    private EventList reverse(EventList ascending){
+        EventList descending = new EventList(); // take the list in ascending order and reverse it
+        int max = ascending.size();
+        for(eventIdx = 0; eventIdx < max; eventIdx++){
+            descending.add(eventIdx, ascending.get(max-eventIdx-1));
+        }
+        return descending;
+    }
+
     private void displayEvents(EventList eventList){
-        clearEvents();
+        clearEvents(); //when sorting, it displays more, so we need to clear the events every time it's called
         for(eventIdx = 0; eventIdx < eventList.size(); eventIdx++){
             LinearLayout layout_event = new LinearLayout(this);
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -125,11 +150,10 @@ public class Events extends AppCompatActivity {
                 layout_event.setLayoutParams(params);
                 layout_event.setOrientation(LinearLayout.HORIZONTAL);
                 layout_event.setClickable(true);
-                layout_event.setTag(eventIdx);
+                layout_event.setTag(eventIdx + ";" + eventListNum);
                 layout_event.setOnClickListener(new View.OnClickListener() {
-                    @Override
                     public void onClick(View v) {
-                        startActivity(createIntent((int) v.getTag()));
+                        startActivity(createIntent(v.getTag().toString()));
                     }
                 });
 
@@ -165,14 +189,27 @@ public class Events extends AppCompatActivity {
         eventIdx = 0;
     }
 
-    private Intent createIntent(int eventIdx){
+    private Intent createIntent(String tag){
+        String[] tags = tag.split(";");
+        int eventId = Integer.parseInt(tags[0]);
+        int listId = Integer.parseInt(tags[1]);
+        EventList eventList = new EventList();
+        switch(listId){
+            case 1: eventList = date_asc; break;
+            case 2: eventList = loc_asc; break;
+            case 3: eventList = price_asc; break;
+            case 4: eventList = date_des; break;
+            case 5: eventList = loc_des; break;
+            case 6: eventList = price_des; break;
+        }
+        Log.d("My_Test", "createIntent:  eventId: " + eventId + " listId: " + listId + " eventList: " + eventList);
         Intent intent = new Intent(Events.this,ViewEvent.class);
-        intent.putExtra("eventName",allEvents.get(eventIdx).getEventName());
-        intent.putExtra("eventDate",allEvents.get(eventIdx).getEventDateTime());
-        intent.putExtra("eventLocation",allEvents.get(eventIdx).getEventLocation());
-        intent.putExtra("eventPrice",""+allEvents.get(eventIdx).getEventPriceS());
-        intent.putExtra("eventDetails",allEvents.get(eventIdx).getEventDetails());
-        intent.putExtra("eventImg",allEvents.get(eventIdx).getEventPhotoName());
+        intent.putExtra("eventName", eventList.get(eventId).getEventName());
+        intent.putExtra("eventDate", eventList.get(eventId).getEventDateTime());
+        intent.putExtra("eventLocation", eventList.get(eventId).getEventLocation());
+        intent.putExtra("eventPrice",""+ eventList.get(eventId).getEventPriceS());
+        intent.putExtra("eventDetails", eventList.get(eventId).getEventDetails());
+        intent.putExtra("eventImg", eventList.get(eventId).getEventPhotoName());
         return intent;
     }
 
@@ -206,7 +243,7 @@ public class Events extends AppCompatActivity {
             String line = bufferedReader.readLine();
             while(line != null){
                 String[] record = line.split(";");
-                allEvents.add(eventIdx, new Event(record[0], record[1], record[2], Double.parseDouble(record[3]), record[4], record[5]));
+                date_asc.add(eventIdx, new Event(record[0], record[1], record[2], Double.parseDouble(record[3]), record[4], record[5]));
                 eventIdx++;
                 line = bufferedReader.readLine();
             }

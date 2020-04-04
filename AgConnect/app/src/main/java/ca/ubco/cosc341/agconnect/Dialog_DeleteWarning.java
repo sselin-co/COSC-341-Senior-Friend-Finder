@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+
 public class Dialog_DeleteWarning extends AppCompatActivity {
 
     TextView tv_title, tv_message;
@@ -35,8 +39,8 @@ public class Dialog_DeleteWarning extends AppCompatActivity {
             tv_title.setText(extra.getString("title"));
             tv_message.setText(extra.getString("message"));
         }else{
-            tv_title.setText("Error"); //TODO: do we want to change the error message?
-            tv_message.setText("Sorry! It looks like we missed something here.");
+            tv_title.setText(R.string.error); //TODO: do we want to change the error message?
+            tv_message.setText(R.string.desc_error);
         }
 
 
@@ -49,94 +53,155 @@ public class Dialog_DeleteWarning extends AppCompatActivity {
 
 
         //The origin string determines the function of the "proceed" button
-        if(origin.equals("deleteAccount")){
-            btn_proceed.setOnClickListener(new View.OnClickListener(){
-                public void onClick(View v){
-                    Intent intent = new Intent(Dialog_DeleteWarning.this, Dialog_DeleteWarning.class);
-                    intent.putExtra("origin","deleteAccountFINAL");
-                    intent.putExtra("title", getString(R.string.btn_delAcc));
-                    intent.putExtra("message", getString(R.string.ins_delAccountFINAL));
-                    startActivity(intent);
-                }
-            });
-        }else if(origin.equals("deleteAccountFINAL")){
-            btn_proceed.setOnClickListener(new View.OnClickListener(){
-                public void onClick(View v){
-                    //TODO: DONE? delete this toast that was used for testing
-                    Toast.makeText(Dialog_DeleteWarning.this, "Deleting account...", Toast.LENGTH_SHORT).show();
-
-                    //TODO: delete the user information
-                    //code here
-
-                    //restart application
-                    Intent restartIntent = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
-                    startActivity(restartIntent);
-
-                }
-            });
-            btn_cancel.setOnClickListener(new View.OnClickListener(){
-                public void onClick(View v){
-                    Intent cancelIntent = new Intent(getApplicationContext(),SettingsMenu.class);
-                    startActivity(cancelIntent);
-                    finish();
-                }
-            });
-        }else if(origin.equals("deleteProfileItem")){
-
-            btn_proceed.setOnClickListener(new View.OnClickListener(){
-                public void onClick(View v){
-                    User user = (User) getIntent().getSerializableExtra("user");
-                    String tag = extra.getString("tag");
-
-                    assert tag != null; assert user != null;
-                    Log.d("MY_TAG", "onClick: " + tag);
-                    switch (tag) {
-                        case "pictureName":
-                            user.deletePictureName();
-                            Toast.makeText(Dialog_DeleteWarning.this, "Profile picture deleted", Toast.LENGTH_SHORT).show();
-                            break;
-                        case "goals":
-                            user.deleteGoals();
-                            Toast.makeText(Dialog_DeleteWarning.this, "Goals deleted", Toast.LENGTH_SHORT).show();
-                            break;
-                        case "interests":
-                            user.deleteInterests();
-                            Toast.makeText(Dialog_DeleteWarning.this, "Interests deleted ", Toast.LENGTH_SHORT).show();
-                            break;
-                        case "age":
-                            user.deleteBirthday();
-                            Toast.makeText(Dialog_DeleteWarning.this, "Age deleted ", Toast.LENGTH_SHORT).show();
-                            break;
-                        case "pronoun":
-                            user.deletePronoun();
-                            Toast.makeText(Dialog_DeleteWarning.this, "Preferred pronoun deleted", Toast.LENGTH_SHORT).show();
-                            break;
-                        case "bio":
-                            user.deleteBio();
-                            Toast.makeText(Dialog_DeleteWarning.this, "Biography deleted", Toast.LENGTH_SHORT).show();
-                            break;
-                        default:
-                            Toast.makeText(Dialog_DeleteWarning.this, "ERROR. Nothing deleted.", Toast.LENGTH_SHORT).show();
-                            break;
+        switch (origin) {
+            case "deleteAccount":
+                btn_proceed.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Dialog_DeleteWarning.this, Dialog_DeleteWarning.class);
+                        intent.putExtra("origin", "deleteAccountFINAL");
+                        intent.putExtra("title", getString(R.string.btn_delAcc));
+                        intent.putExtra("message", getString(R.string.ins_delAccountFINAL));
+                        startActivity(intent);
                     }
-                    Intent intent = new Intent(Dialog_DeleteWarning.this, ViewEditProfile.class);
-                    intent.putExtra("user",user);
-                    startActivity(intent);
-                    finish();
-                }
-            });
-            btn_cancel.setOnClickListener(new View.OnClickListener(){
-                public void onClick(View v){
-                    User user = (User) getIntent().getSerializableExtra("user");
-                    Intent cancelIntent = new Intent(getApplicationContext(),ViewEditProfile.class);
-                    cancelIntent.putExtra("user",user);
-                    startActivity(cancelIntent);
-                    finish();
-                }
-            });
-        }else{
-            //TODO: another origin
-            Toast.makeText(Dialog_DeleteWarning.this, "Deleting something...", Toast.LENGTH_SHORT).show();
+                });
+                break;
+            case "deleteAccountFINAL":
+                btn_proceed.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+
+                        Toast.makeText(Dialog_DeleteWarning.this, "Deleting account...", Toast.LENGTH_SHORT).show();
+
+                        //TODO: delete the user information
+                        AppGlobals.user = null;
+                        AppGlobals.friendList = null;
+                        AppGlobals.answerRequestHarold = AppGlobals.friendsWithHarold = AppGlobals.requestSentQueen = AppGlobals.requestSentBea = AppGlobals.requestSentHarold = false;
+
+                        File destination = new File(Dialog_DeleteWarning.this.getFilesDir(), "text"); //in the files directory, there is a text directory
+                        if (!destination.exists()) { //if it doesn't exist yet, create it
+                            destination.mkdir();
+                        }
+                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(destination + "/records.txt", false))) {  //try-with-resources make a bufferedWriter to append to a text file called "records.txt"
+                            writer.write("");  //overwrite with nothing
+
+                        } catch (Exception e) { //if any error occurs
+                            Log.d("My_Test", "Error: " + e.getMessage()); //send the error message to the log
+                            Toast.makeText(Dialog_DeleteWarning.this, "Error", Toast.LENGTH_SHORT).show(); //show a toast so the user knows an error occurred
+                        }
+
+                        //restart application
+                        Intent restartIntent = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
+                        startActivity(restartIntent);
+
+                    }
+                });
+                btn_cancel.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent cancelIntent = new Intent(getApplicationContext(), SettingsMenu.class);
+                        startActivity(cancelIntent);
+                        finish();
+                    }
+                });
+                break;
+            case "deleteProfileItem":
+
+                btn_proceed.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        String tag = extra.getString("tag");
+
+                        assert tag != null;
+                        switch (tag) {
+                            case "picture":
+                                AppGlobals.user.deleteProfilePicture();
+                                Toast.makeText(Dialog_DeleteWarning.this, "Profile picture deleted", Toast.LENGTH_SHORT).show();
+                                break;
+                            case "goals":
+                                AppGlobals.user.deleteGoals();
+                                Toast.makeText(Dialog_DeleteWarning.this, "Goals deleted", Toast.LENGTH_SHORT).show();
+                                break;
+                            case "interests":
+                                AppGlobals.user.deleteInterests();
+                                Toast.makeText(Dialog_DeleteWarning.this, "Interests deleted ", Toast.LENGTH_SHORT).show();
+                                break;
+                            case "age":
+                                AppGlobals.user.deleteBirthday();
+                                Toast.makeText(Dialog_DeleteWarning.this, "Age deleted ", Toast.LENGTH_SHORT).show();
+                                break;
+                            case "pronoun":
+                                AppGlobals.user.deletePronoun();
+                                Toast.makeText(Dialog_DeleteWarning.this, "Preferred pronoun deleted", Toast.LENGTH_SHORT).show();
+                                break;
+                            case "bio":
+                                AppGlobals.user.deleteBio();
+                                Toast.makeText(Dialog_DeleteWarning.this, "Biography deleted", Toast.LENGTH_SHORT).show();
+                                break;
+                            default:
+                                Toast.makeText(Dialog_DeleteWarning.this, "ERROR. Nothing deleted.", Toast.LENGTH_SHORT).show();
+                                break;
+                        }
+                        Intent intent = new Intent(Dialog_DeleteWarning.this, ViewEditProfile.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                btn_cancel.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent cancelIntent = new Intent(getApplicationContext(), ViewEditProfile.class);
+                        startActivity(cancelIntent);
+                        finish();
+                    }
+                });
+                break;
+            case "unfriend":
+                final String friendName = extra.getString("friendName");
+                btn_proceed.setText(R.string.btn_unfriend);
+                btn_proceed.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Toast.makeText(Dialog_DeleteWarning.this, "Unfriended " + friendName, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Dialog_DeleteWarning.this, MyConnections_MyFriends.class);
+                        AppGlobals.answerRequestHarold = true;
+                        AppGlobals.friendsWithHarold = false;
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                btn_cancel.setText(R.string.btn_stayFriends);
+                btn_cancel.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        AppGlobals.answerRequestHarold = true;
+                        AppGlobals.friendsWithHarold = true;
+                        Intent cancelIntent = new Intent(getApplicationContext(), FriendProfile.class);
+                        cancelIntent.putExtra("name", friendName);
+                        startActivity(cancelIntent);
+                        finish();
+                    }
+                });
+
+                break;
+            case "addDeclineRequest":
+                AppGlobals.answerRequestHarold = true;
+                btn_proceed.setText(R.string.btn_decline);
+                btn_proceed.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        AppGlobals.friendsWithHarold = false;
+                        Intent cancelIntent = new Intent(getApplicationContext(), PotentialFriendProfile.class);
+                        cancelIntent.putExtra("declined", "declined");
+                        startActivity(cancelIntent);
+                        finish();
+                    }
+                });
+                btn_cancel.setText(R.string.btn_addFriend);
+                btn_cancel.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        AppGlobals.friendsWithHarold = true;
+                        Intent intent = new Intent(getApplicationContext(), MyConnections_MyFriends.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                break;
+            default:
+                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+                break;
         }
     }
 }

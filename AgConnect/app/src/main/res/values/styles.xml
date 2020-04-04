@@ -24,5 +24,7 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:backgroundDimAmount">.70</item>
     </style>
+    <style name="AgConnectDatePicker" parent="@android:style/Theme.Holo.Light.Dialog.MinWidth">
 
+    </style>
 </resources>

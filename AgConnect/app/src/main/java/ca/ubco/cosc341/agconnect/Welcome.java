@@ -1,16 +1,16 @@
 package ca.ubco.cosc341.agconnect;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.File;
+import java.io.FileReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -19,7 +19,6 @@ public class Welcome extends AppCompatActivity {
 
     TextView tv_title;
     Button btn_next;
-    User user;
     boolean hasProfile;
 
     @Override
@@ -32,7 +31,7 @@ public class Welcome extends AppCompatActivity {
 
         hasProfile = loadUser();
         if(hasProfile){
-            tv_title.append(" back, " + user.getName());
+            tv_title.append(" back, " + AppGlobals.user.getName());
             btn_next.setText(getString(R.string.btn_signIn));
         }else{
             tv_title.append(" to AgConnect!");
@@ -41,19 +40,31 @@ public class Welcome extends AppCompatActivity {
     }
 
     private boolean loadUser(){
-        try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.getAssets().open("user.txt")))){
-            String line = bufferedReader.readLine();
-            if(line == null){
-                return false;
-            }else {
-                String[] userData = line.split("@@@");
-                Date birthday = new SimpleDateFormat("dd-MM-yyyy", Locale.CANADA).parse(userData[5]);
-                user = new User(userData[2], userData[3], userData[4], birthday, userData[6], userData[7], userData[8], this);
-                return true;
-            }
-        }catch(Exception e){
-            Toast.makeText(this, "Error loading user data", Toast.LENGTH_SHORT).show();
+        File sourceFile = new File(getApplicationContext().getFilesDir(), "text");
+        if(!sourceFile.exists()){
             return false;
+        }else {
+            try (BufferedReader bufferedReader = new BufferedReader(new FileReader(sourceFile + "/user.txt"))) {
+                String line = bufferedReader.readLine();
+                if (line == null) {
+                    return false;
+                } else {
+                    String[] userData = line.split("@@@");
+                    Uri profilePicture = Uri.parse(userData[2]);
+                    Date birthday = new SimpleDateFormat("dd/MM/yyyy", Locale.CANADA).parse(userData[6]);
+                    AppGlobals.user = new User(profilePicture, userData[3], userData[4], userData[5], birthday, userData[7], userData[8]);
+                    AppGlobals.answerRequestHarold = Boolean.parseBoolean(userData[9]);
+                    AppGlobals.friendsWithHarold = Boolean.parseBoolean(userData[10]);
+                    AppGlobals.requestSentQueen = Boolean.parseBoolean(userData[11]);
+                    AppGlobals.requestSentBea = Boolean.parseBoolean(userData[12]);
+                    AppGlobals.requestSentHarold = Boolean.parseBoolean(userData[13]);
+                    return true;
+                }
+            } catch (Exception e) {
+                Log.d("My_Test", "Error: " + e.getMessage()); //send the error message to the log
+                //Toast.makeText(this, "New user detected.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
         }
     }
 
@@ -67,7 +78,6 @@ public class Welcome extends AppCompatActivity {
 
     public void toViewEditProfile(View view){
         Intent intent = new Intent(this,ViewEditProfile.class);
-        intent.putExtra("user", user);
         startActivity(intent);
         finish();
     }
