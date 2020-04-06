@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ca.ubco.cosc341.agconnect">
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <application
         android:name=".AppGlobals"
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AgConnectTheme.Simple">
-        <activity android:name=".Requests"></activity>
+        <activity android:name=".Requests" />
         <activity android:name=".Chat" />
         <activity android:name=".FriendProfile" />
         <activity android:name=".PotentialFriendProfile" />

@@ -110,13 +110,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:onClick="toFriendProfileAgHelp">
+
                 <ImageView
                     android:id="@+id/connections_image1"
                     android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:layout_marginStart="4dp"
-                    android:adjustViewBounds="true"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
+                    android:adjustViewBounds="true"
                     android:contentDescription="@string/desc_profile_img"
                     android:src="@drawable/ic_user" />
                 <LinearLayout
@@ -147,17 +147,16 @@
                 android:layout_height="wrap_content"
                 android:onClick="toFriendProfileHarold"
                 android:orientation="horizontal"
+                android:layout_marginTop="8dp"
                 android:visibility="invisible">
 
                 <ImageView
                     android:id="@+id/requests_image_harold"
                     android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:layout_marginStart="4dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/desc_profile_img"
-                    android:src="@drawable/ic_user"
                     app:srcCompat="@drawable/profile_harold" />
 
                 <LinearLayout

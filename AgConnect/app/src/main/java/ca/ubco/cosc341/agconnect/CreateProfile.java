@@ -3,16 +3,12 @@ package ca.ubco.cosc341.agconnect;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
-
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -24,12 +20,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Objects;
 import java.util.regex.Pattern;
-
 import static android.os.Build.VERSION_CODES.P;
 
 public class CreateProfile extends AppCompatActivity{
@@ -42,9 +36,7 @@ public class CreateProfile extends AppCompatActivity{
     private TextView tv_question, tv_subtext, tv_privacy, tv_count;
     private ImageView iv_profilePicture;
     private static final int PICK_IMAGE = 1;
-
     private Uri imageUri;
-
     private TextView tv_dob;
     private DatePickerDialog.OnDateSetListener dobDateListener;
     private String birthday = "";
@@ -204,9 +196,22 @@ public class CreateProfile extends AppCompatActivity{
         if (sceneId == 7) {
             saveBio();
             takeDownBio();
+            tv_question.setText(getResources().getString(R.string.q_loading));
+            tv_subtext.setText(getResources().getString(R.string.ins_loading));
+            tv_privacy.setText("");
+            tv_count.setText("");
+            btn_next.setVisibility(View.INVISIBLE);
+            btn_back.setVisibility(View.INVISIBLE);
             toViewEditProfile();
         }
-
+        if(sceneId==8){
+            tv_question.setText(getResources().getString(R.string.q_loading));
+            tv_subtext.setText(getResources().getString(R.string.ins_loading));
+            tv_privacy.setText("");
+            btn_next.setVisibility(View.INVISIBLE);
+            btn_back.setVisibility(View.INVISIBLE);
+            toViewEditProfile();
+        }
     }
 
     //when the back button is clicked
@@ -379,7 +384,7 @@ public class CreateProfile extends AppCompatActivity{
 
     private void savePicture(){
         if (imageUri != null) {
-            AppGlobals.user.setProfilePicture(imageUri);
+            AppGlobals.user.setProfilePicture(this, imageUri);
         }
     }
 

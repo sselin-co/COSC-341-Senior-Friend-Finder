@@ -1,10 +1,19 @@
 package ca.ubco.cosc341.agconnect;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 
 import androidx.annotation.RequiresApi;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,7 +35,7 @@ public class User implements Serializable {
     private String pronoun;
     private String bio;
     private String birthdayString;
-    private Uri profilePicture;
+    private Bitmap profilePicture;
 
     //CONSTRUCTOR
     public User(){
@@ -37,8 +46,8 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public User(Uri profilePicture, String name, String goals, String interests, Date birthday, String pronoun, String bio) {
-        this.profilePicture = profilePicture;
+    public User(String profilePicture, String name, String goals, String interests, Date birthday, String pronoun, String bio, Context context) {
+        setProfilePicture(profilePicture);
         this.name = name;
         this.goals = goals;
         this.interests = interests;
@@ -47,23 +56,33 @@ public class User implements Serializable {
         this.bio = bio;
     }
 
-    Uri getProfilePicture(){
+    Bitmap getProfilePicture(){
         return this.profilePicture;
     }
-    private String getProfilePictureString(){
+    String getProfilePictureString(){
         if(this.profilePicture == null){
             return "";
         }else{
-            return getProfilePicture().toString();
+            return BitMapToString(profilePicture);
         }
     }
-    void setProfilePicture(Uri profilePicture){
-        this.profilePicture = profilePicture;
+    void setProfilePicture(Context context, Uri profilePicture){
+        try{
+            this.profilePicture = MediaStore.Images.Media.getBitmap(context.getContentResolver() , profilePicture);
+        }catch(Exception e){
+            Log.d("My_Test", "Error in User.setProfilePicture: " + e.getMessage());
+        }
+
     }
+
+    void setProfilePicture(String bitmapString){
+        this.profilePicture = StringToBitMap(bitmapString);
+    }
+
     void deleteProfilePicture(){
-        setProfilePicture(null);
+        this.profilePicture = null;
     }
-    //GETTERS, SETTERS, AND DELETERS
+
     public String getName() {
         return this.name;
     }
@@ -94,7 +113,7 @@ public class User implements Serializable {
     Date getBirthday() {
         return birthday;
     }
-    private String getBirthdayString(){
+    String getBirthdayString(){
         return birthdayString;
     }
 
@@ -157,7 +176,7 @@ public class User implements Serializable {
 
     @Override
     public String toString(){
-        return email +"@@@"+ password +"@@@"+ getProfilePictureString() +"@@@"+getName()+"@@@"+getGoals()+"@@@"+getInterests()+"@@@"+getBirthdayString()+"@@@"+getPronoun()+"@@@"+getBio();
+        return email +"@@@"+ password +"@@@"+ BitMapToString(profilePicture) +"@@@"+getName()+"@@@"+getGoals()+"@@@"+getInterests()+"@@@"+getBirthdayString()+"@@@"+getPronoun()+"@@@"+getBio();
     }
 
     //CUSTOMIZED METHODS
@@ -166,5 +185,25 @@ public class User implements Serializable {
         LocalDate localBirthDate = this.birthday.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate localCurrentDate = LocalDate.now();
         return ChronoUnit.YEARS.between(localBirthDate, localCurrentDate) + "";
+    }
+
+    private String BitMapToString(Bitmap bitmap){
+        ByteArrayOutputStream baos=new  ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos);
+        bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
+        byte [] b=baos.toByteArray();
+        String result = Base64.encodeToString(b, Base64.DEFAULT);
+        return result.replaceAll("(?:\\r\\n|\\n\\r|\\n|\\r)", "");
+    }
+
+    private Bitmap StringToBitMap(String encodedString){
+        try {
+            byte [] encodeByte=Base64.decode(encodedString,Base64.DEFAULT);
+            Bitmap bitmap=BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        } catch(Exception e) {
+            e.getMessage();
+            return null;
+        }
     }
 }

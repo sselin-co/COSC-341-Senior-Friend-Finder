@@ -99,6 +99,8 @@
     </string-array>
     <string name="q_dob">What is your date of birth?</string>
     <string name="q_picture">Upload a Friendly Picture of Yourself</string>
+    <string name="q_loading">Creating your profile.</string>
+    <string name="ins_loading">Loading. Please wait.</string>
 
     <!-- Instructions -->
     <string name="ins_signUp">Enter your email and a password to sign up for AgConnect.</string>

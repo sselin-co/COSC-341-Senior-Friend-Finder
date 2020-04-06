@@ -2,7 +2,6 @@ package ca.ubco.cosc341.agconnect;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -50,9 +49,13 @@ public class Welcome extends AppCompatActivity {
                     return false;
                 } else {
                     String[] userData = line.split("@@@");
-                    Uri profilePicture = Uri.parse(userData[2]);
-                    Date birthday = new SimpleDateFormat("dd/MM/yyyy", Locale.CANADA).parse(userData[6]);
-                    AppGlobals.user = new User(profilePicture, userData[3], userData[4], userData[5], birthday, userData[7], userData[8]);
+                    Date birthday;
+                    if(!userData[6].equals("null")){
+                        birthday = new SimpleDateFormat("dd/MM/yyyy", Locale.CANADA).parse(userData[6]);
+                    }else{
+                        birthday = null;
+                    }
+                    AppGlobals.user = new User(userData[2], userData[3], userData[4], userData[5], birthday, userData[7], userData[8], this);
                     AppGlobals.answerRequestHarold = Boolean.parseBoolean(userData[9]);
                     AppGlobals.friendsWithHarold = Boolean.parseBoolean(userData[10]);
                     AppGlobals.requestSentQueen = Boolean.parseBoolean(userData[11]);
@@ -61,7 +64,7 @@ public class Welcome extends AppCompatActivity {
                     return true;
                 }
             } catch (Exception e) {
-                Log.d("My_Test", "Error: " + e.getMessage()); //send the error message to the log
+                Log.d("My_Test", "Error in Welcome.loadUser(): " + e.getMessage()); //send the error message to the log
                 //Toast.makeText(this, "New user detected.", Toast.LENGTH_SHORT).show();
                 return false;
             }
@@ -70,6 +73,8 @@ public class Welcome extends AppCompatActivity {
 
     public void toNext(View view){
         if(hasProfile){
+            tv_title.setText(getResources().getString(R.string.ins_loading));
+            btn_next.setVisibility(View.INVISIBLE);
             toViewEditProfile(view);
         }else{
             toSignUp(view);

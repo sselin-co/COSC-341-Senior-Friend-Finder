@@ -151,8 +151,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:orientation="horizontal"
         android:background="@drawable/rectangle_border"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
@@ -218,26 +218,30 @@
         android:id="@+id/friend_request_btn"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/rounded_corners_btn"
         android:backgroundTint="@color/colorAccentTeal"
         android:onClick="onRequestClick"
         android:text="@string/btn_requestSend"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/main_text_events"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/main_text_myConnections"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/back_btn" />
 
     <Button
         android:id="@+id/back_btn"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/rounded_corners_btn"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="@color/colorAccentPink"
         android:onClick="onBackClick"
         android:text="@string/btn_back"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/main_text_connect"
+        app:layout_constraintBottom_toTopOf="@+id/main_text_myConnections"
+        app:layout_constraintEnd_toStartOf="@+id/friend_request_btn"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView

@@ -76,7 +76,7 @@ public class AppGlobals extends Application implements LifecycleObserver {
         if (!destination.exists()) { //if it doesn't exist yet, create it
             destination.mkdir();
         }
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(destination + "/user.txt", false))) {  //try-with-resources make a bufferedWriter to append to a text file called "records.txt"
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(destination + "/user.txt", false))) {
             writer.write(AppGlobals.user.toString() + "@@@"+ AppGlobals.answerRequestHarold + "@@@" + AppGlobals.friendsWithHarold + "@@@" + AppGlobals.requestSentQueen + "@@@" + AppGlobals.requestSentBea + "@@@" + AppGlobals.requestSentHarold);
 
         } catch (Exception e) { //if any error occurs

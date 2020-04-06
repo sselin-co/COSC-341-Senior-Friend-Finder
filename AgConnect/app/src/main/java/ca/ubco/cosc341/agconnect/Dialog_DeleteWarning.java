@@ -71,16 +71,11 @@ public class Dialog_DeleteWarning extends AppCompatActivity {
 
                         Toast.makeText(Dialog_DeleteWarning.this, "Deleting account...", Toast.LENGTH_SHORT).show();
 
-                        //TODO: delete the user information
                         AppGlobals.user = null;
-                        AppGlobals.friendList = null;
                         AppGlobals.answerRequestHarold = AppGlobals.friendsWithHarold = AppGlobals.requestSentQueen = AppGlobals.requestSentBea = AppGlobals.requestSentHarold = false;
 
                         File destination = new File(Dialog_DeleteWarning.this.getFilesDir(), "text"); //in the files directory, there is a text directory
-                        if (!destination.exists()) { //if it doesn't exist yet, create it
-                            destination.mkdir();
-                        }
-                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(destination + "/records.txt", false))) {  //try-with-resources make a bufferedWriter to append to a text file called "records.txt"
+                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(destination + "/user.txt", false))) {
                             writer.write("");  //overwrite with nothing
 
                         } catch (Exception e) { //if any error occurs

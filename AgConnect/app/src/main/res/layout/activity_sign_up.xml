@@ -62,8 +62,8 @@
     <Button
         android:id="@+id/SignUp_button_signUp"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="178dp"
-        android:layout_height="81dp"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
         android:background="@color/colorPrimary"
         android:onClick="onClick"
         android:text="@string/btn_signUp"
